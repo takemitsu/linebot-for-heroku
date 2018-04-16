@@ -61,6 +61,9 @@ def callback():
     except InvalidSignatureError:
         print("InvalidSignatureError")
         abort(400)
+    except:
+        import traceback
+        traceback.print_exc()
 
     return 'OK'
 
