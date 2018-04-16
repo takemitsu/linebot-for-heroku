@@ -18,7 +18,8 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 handler = WebhookHandler('YOUR_CHANNEL_SECRET')
-
+print('YOUR_CHANNEL_SECRET')
+print('YOUR_CHANNEL_ACCESS_TOKEN')
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -43,6 +44,7 @@ def callback():
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
+        print("InvalidSignatureError")
         abort(400)
 
     return 'OK'
