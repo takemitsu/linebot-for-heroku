@@ -27,3 +27,9 @@ heroku ps:scale web=1
 # やんなくてもいい。
 heroku open
 ```
+
+## Original URL
+
+- https://github.com/line/line-bot-sdk-python
+- https://github.com/line/line-bot-sdk-python/tree/master/examples/flask-echo
+- https://pypi.org/project/line-bot-sdk/
