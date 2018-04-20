@@ -71,11 +71,28 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     secondMessage = TextSendMessage(text=u"改行のテストです\nエコーされてますか")
+    message_confirm = TemplateSendMessage(
+        alt_text='Confirm template',
+        template=ConfirmTemplate(
+            text=u"よろしいですか",
+            actions=[
+                MessageTemplateAction(
+                    label=u'はい',
+                    text=u'はい',
+                ),
+                MessageTemplateAction(
+                    label=u'いいえ',
+                    text=u'いいえ'
+                )
+            ]
+        )
+    )
     line_bot_api.reply_message(
         event.reply_token,
         [
             TextSendMessage(text=event.message.text),
             secondMessage,
+            message_confirm,
         ]
 )
 
